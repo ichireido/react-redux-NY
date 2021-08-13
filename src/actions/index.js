@@ -23,6 +23,7 @@ export const changeTitle = (title) => {
 
 export const getJson = () => {
   return (dispatch) => {
+    dispatch({ type: "WAIT" });
     const url = "https://myjson.dit.upm.es/api/bins/jhl";
     axios.get(url).then((res) => {
       dispatch(changeTitle(res.data.member[0].name));
